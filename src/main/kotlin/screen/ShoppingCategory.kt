@@ -12,14 +12,14 @@ class ShoppingCategory: Screen() {
         }
         println("=> 장바구니로 이동하시려면 #을 입력해주세요")
 
-        var selectedCategory = readLine().getNotEmptyString()
+        val selectedCategory = readLine().getNotEmptyString()
         if (selectedCategory == "#") {
             val shoppingCart = ShoppingCart()
             shoppingCart. showCartItems()
         } else {
             if (categories.contains(selectedCategory)){
-                val shoppingProductList = ShoppingProductList()
-                shoppingProductList.showProducts(selectedCategory)
+                val shoppingProductList = ShoppingProductList(selectedCategory)
+                shoppingProductList.showProducts()
             } else{
                 showErrorMessage(selectedCategory)
             }
